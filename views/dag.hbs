@@ -1,0 +1,12 @@
+
+<h1>{{title}}</h1>
+<a href="/"><button type="button" class="btn btn-outline-info">HOME</button> </a>
+
+{{#is compiled 'done'}}
+  <div class="mermaid">
+      {{ diagramData }}
+  </div>
+ <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true,flowchart: { useMaxWidth: false }});</script>
+{{/is}}
+

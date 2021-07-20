@@ -1,0 +1,2918 @@
+{
+    "metadata": {
+        "dbt_schema_version": "https://schemas.getdbt.com/dbt/catalog/v1.json",
+        "dbt_version": "0.20.0b1",
+        "generated_at": "2021-06-17T11:52:45.547914Z",
+        "invocation_id": "f7c0cd62-001c-42df-9317-de6dec152ae9",
+        "env": {}
+    },
+    "nodes": {
+        "model.hube.care_site": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "care_site",
+                "database": "hube",
+                "comment": "The CARE_SITE table contains a list of uniquely identified institutional (physical or organizational) units where healthcare delivery is practiced (offices, wards, hospitals, clinics, etc.).",
+                "owner": "stolon"
+            },
+            "columns": {
+                "care_site_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "care_site_id",
+                    "comment": "A unique identifier for each Care Site."
+                },
+                "care_site_name": {
+                    "type": "character varying(255)",
+                    "index": 2,
+                    "name": "care_site_name",
+                    "comment": "The verbatim description or name of the Care Site as in data source"
+                },
+                "place_of_service_concept_id": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "place_of_service_concept_id",
+                    "comment": "A foreign key that refers to a Place of Service Concept ID in the Standardized Vocabularies."
+                },
+                "location_id": {
+                    "type": "bigint",
+                    "index": 4,
+                    "name": "location_id",
+                    "comment": "A foreign key to the geographic Location in the LOCATION table, where the detailed address information is stored."
+                },
+                "care_site_source_value": {
+                    "type": "text",
+                    "index": 5,
+                    "name": "care_site_source_value",
+                    "comment": "The identifier for the Care Site in the source data, stored here for reference."
+                },
+                "place_of_service_source_value": {
+                    "type": "text",
+                    "index": 6,
+                    "name": "place_of_service_source_value",
+                    "comment": "The source code for the Place of Service as it appears in the source data, stored here for reference."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 7,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.hube.care_site"
+        },
+        "model.hube.condition_occurrence": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "condition_occurrence",
+                "database": "hube",
+                "comment": "Conditions are records of a Person suggesting the presence of a disease or medical condition stated as a diagnosis, a sign, or a symptom, which is either observed by a Provider or reported by the patient. Conditions are recorded in different sources and levels of standardization, for example:  * Medical claims data include diagnoses coded in Source Vocabularies such as ICD-9-CM that are submitted as part of a reimbursement claim for health services * EHRs may capture Person conditions in the form of diagnosis codes or symptoms",
+                "owner": "stolon"
+            },
+            "columns": {
+                "condition_occurrence_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "condition_occurrence_id",
+                    "comment": "A unique identifier for each Condition Occurrence event."
+                },
+                "person_id": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "person_id",
+                    "comment": "A foreign key identifier to the Person who is experiencing the condition. The demographic details of that Person are stored in the PERSON table."
+                },
+                "condition_concept_id": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "condition_concept_id",
+                    "comment": "A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Condition' domain."
+                },
+                "condition_start_date": {
+                    "type": "date",
+                    "index": 4,
+                    "name": "condition_start_date",
+                    "comment": "The date when the instance of the Condition is recorded."
+                },
+                "condition_start_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "condition_start_datetime",
+                    "comment": "The date and time when the instance of the Condition is recorded."
+                },
+                "condition_end_date": {
+                    "type": "date",
+                    "index": 6,
+                    "name": "condition_end_date",
+                    "comment": "The date when the instance of the Condition is considered to have ended."
+                },
+                "condition_end_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 7,
+                    "name": "condition_end_datetime",
+                    "comment": "The date when the instance of the Condition is considered to have ended."
+                },
+                "condition_type_concept_id": {
+                    "type": "integer",
+                    "index": 8,
+                    "name": "condition_type_concept_id",
+                    "comment": "A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the source data from which the Condition was recorded, the level of standardization, and the type of occurrence. These belong to the 'Condition Type' vocabulary"
+                },
+                "condition_status_concept_id": {
+                    "type": "integer",
+                    "index": 9,
+                    "name": "condition_status_concept_id",
+                    "comment": "A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies reflecting the point of care at which the Condition was diagnosed."
+                },
+                "stop_reason": {
+                    "type": "character varying(20)",
+                    "index": 10,
+                    "name": "stop_reason",
+                    "comment": "The reason that the Condition was no longer present, as indicated in the source data."
+                },
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 11,
+                    "name": "provider_id",
+                    "comment": "A foreign key to the Provider in the PROVIDER table who was responsible for capturing (diagnosing) the Condition."
+                },
+                "visit_occurrence_id": {
+                    "type": "bigint",
+                    "index": 12,
+                    "name": "visit_occurrence_id",
+                    "comment": "A foreign key to the visit in the VISIT_OCCURRENCE table during which the Condition was determined (diagnosed)."
+                },
+                "visit_detail_id": {
+                    "type": "bigint",
+                    "index": 13,
+                    "name": "visit_detail_id",
+                    "comment": "A foreign key to the visit in the VISIT_DETAIL table during which the Condition was determined (diagnosed)."
+                },
+                "condition_source_value": {
+                    "type": "text",
+                    "index": 14,
+                    "name": "condition_source_value",
+                    "comment": "The source code for the Condition as it appears in the source data. This code is mapped to a Standard Condition Concept in the Standardized Vocabularies and the original code is stored here for reference."
+                },
+                "condition_source_concept_id": {
+                    "type": "integer",
+                    "index": 15,
+                    "name": "condition_source_concept_id",
+                    "comment": "A foreign key to a Condition Concept that refers to the code used in the source."
+                },
+                "condition_status_source_value": {
+                    "type": "text",
+                    "index": 16,
+                    "name": "condition_status_source_value",
+                    "comment": "The source code for the condition status as it appears in the source data.  This code is mapped to a Standard Concept in the Standardized Vocabularies and the original code is stored here for reference."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 17,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.hube.condition_occurrence"
+        },
+        "model.hube.drug_exposure": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "drug_exposure",
+                "database": "hube",
+                "comment": "The 'Drug' domain captures records about the utilization of a Drug when ingested or otherwise introduced into the body. A Drug is a biochemical substance formulated in such a way that when administered to a Person it will exert a certain physiological effect. Drugs include prescription and over-the-counter medicines, vaccines, and large-molecule biologic therapies. Radiological devices ingested or applied locally do not count as Drugs.  Drug Exposure is inferred from clinical events associated with orders, prescriptions written, pharmacy dispensings, procedural administrations, and other patient-reported information, for example:  * The 'Prescription' section of an EHR captures prescriptions written by physicians or from electronic ordering systems * The 'Medication list' section of an EHR for both non-prescription products and medications prescribed by other providers * Prescriptions filled at dispensing providers such as pharmacies, and then captured in reimbursement claim systems * Drugs administered as part of a Procedure, such as chemotherapy or vaccines.",
+                "owner": "stolon"
+            },
+            "columns": {
+                "drug_exposure_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "drug_exposure_id",
+                    "comment": "A system-generated unique identifier for each Drug utilization event."
+                },
+                "person_id": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "person_id",
+                    "comment": "A foreign key identifier to the Person who is subjected to the Drug. The demographic details of that Person are stored in the PERSON table."
+                },
+                "drug_concept_id": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "drug_concept_id",
+                    "comment": "A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Drug' domain."
+                },
+                "drug_exposure_start_date": {
+                    "type": "date",
+                    "index": 4,
+                    "name": "drug_exposure_start_date",
+                    "comment": "The start date for the current instance of Drug utilization. Valid entries include a start date of a prescription, the date a prescription was filled, or the date on which a Drug administration procedure was recorded."
+                },
+                "drug_exposure_start_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "drug_exposure_start_datetime",
+                    "comment": "The start date and time for the current instance of Drug utilization. Valid entries include a start datetime of a prescription, the date and time a prescription was filled, or the date and time on which a Drug administration procedure was recorded."
+                },
+                "drug_exposure_end_date": {
+                    "type": "date",
+                    "index": 6,
+                    "name": "drug_exposure_end_date",
+                    "comment": "The end date for the current instance of Drug utilization. Depending on different sources, it could be a known or an inferred date and denotes the last day at which the patient was still exposed to Drug."
+                },
+                "drug_exposure_end_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 7,
+                    "name": "drug_exposure_end_datetime",
+                    "comment": "The end date and time for the current instance of Drug utilization. Depending on different sources, it could be a known or an inferred date and time and denotes the last day at which the patient was still exposed to Drug."
+                },
+                "verbatim_end_date": {
+                    "type": "date",
+                    "index": 8,
+                    "name": "verbatim_end_date",
+                    "comment": "The known end date of a drug_exposure as provided by the source."
+                },
+                "drug_type_concept_id": {
+                    "type": "integer",
+                    "index": 9,
+                    "name": "drug_type_concept_id",
+                    "comment": "A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of Drug Exposure recorded. It indicates how the Drug Exposure was represented in the source data and belongs to the 'Drug Type' vocabulary."
+                },
+                "stop_reason": {
+                    "type": "character varying(20)",
+                    "index": 10,
+                    "name": "stop_reason",
+                    "comment": "The reason the Drug was stopped. Reasons include regimen completed, changed, removed, etc."
+                },
+                "refills": {
+                    "type": "integer",
+                    "index": 11,
+                    "name": "refills",
+                    "comment": "The number of refills after the initial prescription. The initial prescription is not counted, values start with null."
+                },
+                "quantity": {
+                    "type": "numeric",
+                    "index": 12,
+                    "name": "quantity",
+                    "comment": "The quantity of drug as recorded in the original prescription or dispensing record."
+                },
+                "days_supply": {
+                    "type": "integer",
+                    "index": 13,
+                    "name": "days_supply",
+                    "comment": "The number of days of supply of the medication as prescribed. This reflects the intention of the provider for the length of exposure."
+                },
+                "sig": {
+                    "type": "text",
+                    "index": 14,
+                    "name": "sig",
+                    "comment": "The directions ('signetur') on the Drug prescription as recorded in the original prescription (and printed on the container) or dispensing record."
+                },
+                "route_concept_id": {
+                    "type": "integer",
+                    "index": 15,
+                    "name": "route_concept_id",
+                    "comment": "A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies reflecting the route of administration and belonging to the 'Route' domain."
+                },
+                "lot_number": {
+                    "type": "character varying(50)",
+                    "index": 16,
+                    "name": "lot_number",
+                    "comment": "An identifier assigned to a particular quantity or lot of Drug product from the manufacturer."
+                },
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 17,
+                    "name": "provider_id",
+                    "comment": "A foreign key to the provider in the PROVIDER table who initiated (prescribed or administered) the Drug Exposure."
+                },
+                "visit_occurrence_id": {
+                    "type": "bigint",
+                    "index": 18,
+                    "name": "visit_occurrence_id",
+                    "comment": "A foreign key to the Visit in the VISIT_OCCURRENCE table during which the Drug Exposure was initiated."
+                },
+                "visit_detail_id": {
+                    "type": "bigint",
+                    "index": 19,
+                    "name": "visit_detail_id",
+                    "comment": "A foreign key to the Visit Detail in the VISIT_DETAIL table during which the Drug Exposure was initiated."
+                },
+                "drug_source_value": {
+                    "type": "text",
+                    "index": 20,
+                    "name": "drug_source_value",
+                    "comment": "The source code for the Drug as it appears in the source data. This code is mapped to a Standard Drug concept in the Standardized Vocabularies and the original code is, stored here for reference."
+                },
+                "drug_source_concept_id": {
+                    "type": "integer",
+                    "index": 21,
+                    "name": "drug_source_concept_id",
+                    "comment": "A foreign key to a Drug Concept that refers to the code used in the source."
+                },
+                "route_source_value": {
+                    "type": "text",
+                    "index": 22,
+                    "name": "route_source_value",
+                    "comment": "The information about the route of administration as detailed in the source."
+                },
+                "dose_unit_source_value": {
+                    "type": "text",
+                    "index": 23,
+                    "name": "dose_unit_source_value",
+                    "comment": "The information about the dose unit as detailed in the source."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 24,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.hube.drug_exposure"
+        },
+        "model.hube.measurement": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "measurement",
+                "database": "hube",
+                "comment": "The MEASUREMENT table contains records of Measurement, i.e. structured values (numerical or categorical) obtained through systematic and standardized examination or testing of a Person or Person's sample. The MEASUREMENT table contains both orders and results of such Measurements as laboratory tests, vital signs, quantitative findings from pathology reports, etc.",
+                "owner": "stolon"
+            },
+            "columns": {
+                "measurement_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "measurement_id",
+                    "comment": "A unique identifier for each Measurement."
+                },
+                "person_id": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "person_id",
+                    "comment": "A foreign key identifier to the Person about whom the measurement was recorded. The demographic details of that Person are stored in the PERSON table."
+                },
+                "measurement_concept_id": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "measurement_concept_id",
+                    "comment": "A foreign key to the standard measurement concept identifier in the Standardized Vocabularies. These belong to the 'Measurement' domain, but could overlap with the 'Observation' domain (see #3 below)."
+                },
+                "measurement_date": {
+                    "type": "date",
+                    "index": 4,
+                    "name": "measurement_date",
+                    "comment": "The date of the Measurement."
+                },
+                "measurement_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "measurement_datetime",
+                    "comment": "The date and time of the Measurement. Some database systems don't have a datatype of time. To accommodate all temporal analyses, datatype datetime can be used (combining measurement_date and measurement_time [forum discussion](http://forums.ohdsi.org/t/date-time-and-datetime-problem-and-the-world-of-hours-and-1day/314))"
+                },
+                "measurement_time": {
+                    "type": "character varying(10)",
+                    "index": 6,
+                    "name": "measurement_time",
+                    "comment": "The time of the Measurement. This is present for backwards compatibility and will be deprecated in an upcoming version"
+                },
+                "measurement_type_concept_id": {
+                    "type": "integer",
+                    "index": 7,
+                    "name": "measurement_type_concept_id",
+                    "comment": "A foreign key to the predefined Concept in the Standardized Vocabularies reflecting the provenance from where the Measurement record was recorded. These belong to the 'Meas Type' vocabulary"
+                },
+                "operator_concept_id": {
+                    "type": "integer",
+                    "index": 8,
+                    "name": "operator_concept_id",
+                    "comment": "A foreign key identifier to the predefined Concept in the Standardized Vocabularies reflecting the mathematical operator that is applied to the value_as_number. Operators are <, <=, =, >=, > and these concepts belong to the 'Meas Value Operator' domain."
+                },
+                "value_as_number": {
+                    "type": "numeric",
+                    "index": 9,
+                    "name": "value_as_number",
+                    "comment": "A Measurement result where the result is expressed as a numeric value."
+                },
+                "value_as_concept_id": {
+                    "type": "integer",
+                    "index": 10,
+                    "name": "value_as_concept_id",
+                    "comment": "A foreign key to a Measurement result represented as a Concept from the Standardized Vocabularies (e.g., positive/negative, present/absent, low/high, etc.). These belong to the 'Meas Value' domain"
+                },
+                "unit_concept_id": {
+                    "type": "integer",
+                    "index": 11,
+                    "name": "unit_concept_id",
+                    "comment": "A foreign key to a Standard Concept ID of Measurement Units in the Standardized Vocabularies that belong to the 'Unit' domain."
+                },
+                "range_low": {
+                    "type": "numeric",
+                    "index": 12,
+                    "name": "range_low",
+                    "comment": "The lower limit of the normal range of the Measurement result. The lower range is assumed to be of the same unit of measure as the Measurement value."
+                },
+                "range_high": {
+                    "type": "numeric",
+                    "index": 13,
+                    "name": "range_high",
+                    "comment": "The upper limit of the normal range of the Measurement. The upper range is assumed to be of the same unit of measure as the Measurement value."
+                },
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 14,
+                    "name": "provider_id",
+                    "comment": "A foreign key to the provider in the PROVIDER table who was responsible for initiating or obtaining the measurement."
+                },
+                "visit_occurrence_id": {
+                    "type": "bigint",
+                    "index": 15,
+                    "name": "visit_occurrence_id",
+                    "comment": "A foreign key to the Visit in the VISIT_OCCURRENCE table during which the Measurement was recorded."
+                },
+                "visit_detail_id": {
+                    "type": "bigint",
+                    "index": 16,
+                    "name": "visit_detail_id",
+                    "comment": "A foreign key to the Visit Detail in the VISIT_DETAIL table during which the Measurement was recorded."
+                },
+                "measurement_source_value": {
+                    "type": "text",
+                    "index": 17,
+                    "name": "measurement_source_value",
+                    "comment": "The Measurement name as it appears in the source data. This code is mapped to a Standard Concept in the Standardized Vocabularies and the original code is stored here for reference."
+                },
+                "measurement_source_concept_id": {
+                    "type": "integer",
+                    "index": 18,
+                    "name": "measurement_source_concept_id",
+                    "comment": "A foreign key to a Concept in the Standard Vocabularies that refers to the code used in the source."
+                },
+                "unit_source_value": {
+                    "type": "text",
+                    "index": 19,
+                    "name": "unit_source_value",
+                    "comment": "The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is stored here for reference."
+                },
+                "value_source_value": {
+                    "type": "text",
+                    "index": 20,
+                    "name": "value_source_value",
+                    "comment": "The source value associated with the content of the value_as_number or value_as_concept_id as stored in the source data."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 21,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.hube.measurement"
+        },
+        "model.hube.person": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "person",
+                "database": "hube",
+                "comment": "The Person Domain contains records that uniquely identify each patient in the source data who is time at-risk to have clinical observations recorded within the source systems.",
+                "owner": "stolon"
+            },
+            "columns": {
+                "person_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "person_id",
+                    "comment": "A unique identifier for each person."
+                },
+                "gender_concept_id": {
+                    "type": "integer",
+                    "index": 2,
+                    "name": "gender_concept_id",
+                    "comment": "A foreign key that refers to an identifier in the CONCEPT table for the unique gender of the person."
+                },
+                "year_of_birth": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "year_of_birth",
+                    "comment": "The year of birth of the person. For data sources with date of birth, the year is extracted. For data sources where the year of birth is not available, the approximate year of birth is derived based on any age group categorization available."
+                },
+                "month_of_birth": {
+                    "type": "integer",
+                    "index": 4,
+                    "name": "month_of_birth",
+                    "comment": "The month of birth of the person. For data sources that provide the precise date of birth, the month is extracted and stored in this field."
+                },
+                "day_of_birth": {
+                    "type": "integer",
+                    "index": 5,
+                    "name": "day_of_birth",
+                    "comment": "The day of the month of birth of the person. For data sources that provide the precise date of birth, the day is extracted and stored in this field."
+                },
+                "birth_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 6,
+                    "name": "birth_datetime",
+                    "comment": "The date and time of birth of the person."
+                },
+                "death_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 7,
+                    "name": "death_datetime",
+                    "comment": "The date and time of death of the person."
+                },
+                "race_concept_id": {
+                    "type": "integer",
+                    "index": 8,
+                    "name": "race_concept_id",
+                    "comment": "A foreign key that refers to an identifier in the CONCEPT table for the unique race of the person, belonging to the 'Race' vocabulary."
+                },
+                "ethnicity_concept_id": {
+                    "type": "integer",
+                    "index": 9,
+                    "name": "ethnicity_concept_id",
+                    "comment": "A foreign key that refers to the standard concept identifier in the Standardized Vocabularies for the ethnicity of the person, belonging to the 'Ethnicity' vocabulary."
+                },
+                "location_id": {
+                    "type": "bigint",
+                    "index": 10,
+                    "name": "location_id",
+                    "comment": "A foreign key to the place of residency for the person in the location table, where the detailed address information is stored."
+                },
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 11,
+                    "name": "provider_id",
+                    "comment": "A foreign key to the primary care provider the person is seeing in the provider table."
+                },
+                "care_site_id": {
+                    "type": "bigint",
+                    "index": 12,
+                    "name": "care_site_id",
+                    "comment": "A foreign key to the site of primary care in the care_site table, where the details of the care site are stored."
+                },
+                "person_source_value": {
+                    "type": "text",
+                    "index": 13,
+                    "name": "person_source_value",
+                    "comment": "An (encrypted) key derived from the person identifier in the source data. This is necessary when a use case requires a link back to the person data at the source dataset."
+                },
+                "gender_source_value": {
+                    "type": "text",
+                    "index": 14,
+                    "name": "gender_source_value",
+                    "comment": "The source code for the gender of the person as it appears in the source data. The person\u2019s gender is mapped to a standard gender concept in the Standardized Vocabularies; the original value is stored here for reference."
+                },
+                "gender_source_concept_id": {
+                    "type": "integer",
+                    "index": 15,
+                    "name": "gender_source_concept_id",
+                    "comment": "A foreign key to the gender concept that refers to the code used in the source."
+                },
+                "race_source_value": {
+                    "type": "text",
+                    "index": 16,
+                    "name": "race_source_value",
+                    "comment": "The source code for the race of the person as it appears in the source data. The person race is mapped to a standard race concept in the Standardized Vocabularies and the original value is stored here for reference."
+                },
+                "race_source_concept_id": {
+                    "type": "integer",
+                    "index": 17,
+                    "name": "race_source_concept_id",
+                    "comment": "A foreign key to the race concept that refers to the code used in the source."
+                },
+                "ethnicity_source_value": {
+                    "type": "text",
+                    "index": 18,
+                    "name": "ethnicity_source_value",
+                    "comment": "The source code for the ethnicity of the person as it appears in the source data. The person ethnicity is mapped to a standard ethnicity concept in the Standardized Vocabularies and the original code is, stored here for reference."
+                },
+                "ethnicity_source_concept_id": {
+                    "type": "integer",
+                    "index": 19,
+                    "name": "ethnicity_source_concept_id",
+                    "comment": "A foreign key to the ethnicity concept that refers to the code used in the source."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 20,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.hube.person"
+        },
+        "model.hube.procedure_occurrence": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "procedure_occurrence",
+                "database": "hube",
+                "comment": "The PROCEDURE_OCCURRENCE table contains records of activities or processes ordered by, or carried out by, a healthcare provider on the patient to have a diagnostic or therapeutic purpose. Procedures are present in various data sources in different forms with varying levels of standardization. For example:  * Medical Claims include procedure codes that are submitted as part of a claim for health services rendered, including procedures performed. * Electronic Health Records that capture procedures as orders.",
+                "owner": "stolon"
+            },
+            "columns": {
+                "procedure_occurrence_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "procedure_occurrence_id",
+                    "comment": "A system-generated unique identifier for each Procedure Occurrence."
+                },
+                "person_id": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "person_id",
+                    "comment": "A foreign key identifier to the Person who is subjected to the Procedure. The demographic details of that Person are stored in the PERSON table."
+                },
+                "procedure_concept_id": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "procedure_concept_id",
+                    "comment": "A foreign key that refers to a standard procedure Concept identifier in the Standardized Vocabularies."
+                },
+                "procedure_date": {
+                    "type": "date",
+                    "index": 4,
+                    "name": "procedure_date",
+                    "comment": "The date on which the Procedure was performed."
+                },
+                "procedure_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "procedure_datetime",
+                    "comment": "The date and time on which the Procedure was performed."
+                },
+                "procedure_type_concept_id": {
+                    "type": "integer",
+                    "index": 6,
+                    "name": "procedure_type_concept_id",
+                    "comment": "A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of source data from which the procedure record is derived, belonging to the 'Procedure Type' vocabulary."
+                },
+                "modifier_concept_id": {
+                    "type": "integer",
+                    "index": 7,
+                    "name": "modifier_concept_id",
+                    "comment": "A foreign key to a Standard Concept identifier for a modifier to the Procedure (e.g. bilateral). These concepts are typically distinguished by 'Modifier' concept classes (e.g., 'CPT4 Modifier' as part of the 'CPT4' vocabulary)."
+                },
+                "quantity": {
+                    "type": "integer",
+                    "index": 8,
+                    "name": "quantity",
+                    "comment": "The quantity of procedures ordered or administered."
+                },
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 9,
+                    "name": "provider_id",
+                    "comment": "A foreign key to the provider in the PROVIDER table who was responsible for carrying out the procedure."
+                },
+                "visit_occurrence_id": {
+                    "type": "bigint",
+                    "index": 10,
+                    "name": "visit_occurrence_id",
+                    "comment": "A foreign key to the Visit in the VISIT_OCCURRENCE table during which the Procedure was carried out."
+                },
+                "visit_detail_id": {
+                    "type": "bigint",
+                    "index": 11,
+                    "name": "visit_detail_id",
+                    "comment": "A foreign key to the Visit Detail in the VISIT_DETAIL table during which the Procedure was carried out."
+                },
+                "procedure_source_value": {
+                    "type": "text",
+                    "index": 12,
+                    "name": "procedure_source_value",
+                    "comment": "The source code for the Procedure as it appears in the source data. This code is mapped to a standard procedure Concept in the Standardized Vocabularies and the original code is, stored here for reference. Procedure source codes are typically ICD-9-Proc, CPT-4, HCPCS or OPCS-4 codes."
+                },
+                "procedure_source_concept_id": {
+                    "type": "integer",
+                    "index": 13,
+                    "name": "procedure_source_concept_id",
+                    "comment": "A foreign key to a Procedure Concept that refers to the code used in the source."
+                },
+                "modifier_source_value": {
+                    "type": "text",
+                    "index": 14,
+                    "name": "modifier_source_value",
+                    "comment": "The source code for the qualifier as it appears in the source data."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 15,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.hube.procedure_occurrence"
+        },
+        "model.hube.provider": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "provider",
+                "database": "hube",
+                "comment": "The PROVIDER table contains a list of uniquely identified healthcare providers. These are individuals providing hands-on healthcare to patients, such as physicians, nurses, midwives, physical therapists etc.",
+                "owner": "stolon"
+            },
+            "columns": {
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "provider_id",
+                    "comment": "A unique identifier for each Provider."
+                },
+                "provider_name": {
+                    "type": "character varying(255)",
+                    "index": 2,
+                    "name": "provider_name",
+                    "comment": "A description of the Provider."
+                },
+                "npi": {
+                    "type": "character varying(20)",
+                    "index": 3,
+                    "name": "npi",
+                    "comment": "The National Provider Identifier (NPI) of the provider."
+                },
+                "dea": {
+                    "type": "character varying(20)",
+                    "index": 4,
+                    "name": "dea",
+                    "comment": "The Drug Enforcement Administration (DEA) number of the provider."
+                },
+                "specialty_concept_id": {
+                    "type": "integer",
+                    "index": 5,
+                    "name": "specialty_concept_id",
+                    "comment": "A foreign key to a Standard Specialty Concept ID in the Standardized Vocabularies."
+                },
+                "care_site_id": {
+                    "type": "bigint",
+                    "index": 6,
+                    "name": "care_site_id",
+                    "comment": "A foreign key to the main Care Site where the provider is practicing."
+                },
+                "year_of_birth": {
+                    "type": "integer",
+                    "index": 7,
+                    "name": "year_of_birth",
+                    "comment": "The year of birth of the Provider."
+                },
+                "gender_concept_id": {
+                    "type": "integer",
+                    "index": 8,
+                    "name": "gender_concept_id",
+                    "comment": "The gender of the Provider."
+                },
+                "provider_source_value": {
+                    "type": "text",
+                    "index": 9,
+                    "name": "provider_source_value",
+                    "comment": "The identifier used for the Provider in the source data, stored here for reference."
+                },
+                "specialty_source_value": {
+                    "type": "text",
+                    "index": 10,
+                    "name": "specialty_source_value",
+                    "comment": "The source code for the Provider specialty as it appears in the source data, stored here for reference."
+                },
+                "specialty_source_concept_id": {
+                    "type": "integer",
+                    "index": 11,
+                    "name": "specialty_source_concept_id",
+                    "comment": "A foreign key to a Concept that refers to the code used in the source."
+                },
+                "gender_source_value": {
+                    "type": "text",
+                    "index": 12,
+                    "name": "gender_source_value",
+                    "comment": "The gender code for the Provider as it appears in the source data, stored here for reference."
+                },
+                "gender_source_concept_id": {
+                    "type": "integer",
+                    "index": 13,
+                    "name": "gender_source_concept_id",
+                    "comment": "A foreign key to a Concept that refers to the code used in the source."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 14,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.hube.provider"
+        },
+        "model.hube.visit_detail": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "visit_detail",
+                "database": "hube",
+                "comment": "The VISIT_DETAIL table is an optional table used to represents details of each record in the parent visit_occurrence table. For every record in visit_occurrence table there may be 0 or more records in the visit_detail table with a 1:n relationship where n may be 0. The visit_detail table is structurally very similar to visit_occurrence table and belongs to the similar domain as the visit.",
+                "owner": "stolon"
+            },
+            "columns": {
+                "visit_detail_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "visit_detail_id",
+                    "comment": "A unique identifier for each Person's visit or encounter at a healthcare provider."
+                },
+                "person_id": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "person_id",
+                    "comment": "A foreign key identifier to the Person for whom the visit is recorded. The demographic details of that Person are stored in the PERSON table."
+                },
+                "visit_detail_concept_id": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "visit_detail_concept_id",
+                    "comment": "A foreign key that refers to a visit Concept identifier in the Standardized Vocabularies belonging to the 'Visit' Vocabulary."
+                },
+                "visit_detail_start_date": {
+                    "type": "date",
+                    "index": 4,
+                    "name": "visit_detail_start_date",
+                    "comment": "The start date of the visit."
+                },
+                "visit_detail_start_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "visit_detail_start_datetime",
+                    "comment": "The date and time of the visit started."
+                },
+                "visit_detail_end_date": {
+                    "type": "date",
+                    "index": 6,
+                    "name": "visit_detail_end_date",
+                    "comment": "The end date of the visit. If this is a one-day visit the end date should match the start date."
+                },
+                "visit_detail_end_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 7,
+                    "name": "visit_detail_end_datetime",
+                    "comment": "The date and time of the visit end."
+                },
+                "visit_detail_type_concept_id": {
+                    "type": "integer",
+                    "index": 8,
+                    "name": "visit_detail_type_concept_id",
+                    "comment": "A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of source data from which the visit record is derived belonging to the 'Visit Type' vocabulary."
+                },
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 9,
+                    "name": "provider_id",
+                    "comment": "A foreign key to the provider in the provider table who was associated with the visit."
+                },
+                "care_site_id": {
+                    "type": "bigint",
+                    "index": 10,
+                    "name": "care_site_id",
+                    "comment": "A foreign key to the care site in the care site table that was visited."
+                },
+                "discharge_to_concept_id": {
+                    "type": "integer",
+                    "index": 11,
+                    "name": "discharge_to_concept_id",
+                    "comment": "A foreign key to the predefined concept in the 'Place of Service' Vocabulary reflecting the discharge disposition for a visit."
+                },
+                "admitted_from_concept_id": {
+                    "type": "integer",
+                    "index": 12,
+                    "name": "admitted_from_concept_id",
+                    "comment": "A foreign key to the predefined concept in the 'Place of Service' Vocabulary reflecting the admitting source for a visit."
+                },
+                "admitted_from_source_value": {
+                    "type": "text",
+                    "index": 13,
+                    "name": "admitted_from_source_value",
+                    "comment": "The source code for the admitting source as it appears in the source data."
+                },
+                "visit_detail_source_value": {
+                    "type": "text",
+                    "index": 14,
+                    "name": "visit_detail_source_value",
+                    "comment": "The source code for the visit as it appears in the source data."
+                },
+                "visit_detail_source_concept_id": {
+                    "type": "integer",
+                    "index": 15,
+                    "name": "visit_detail_source_concept_id",
+                    "comment": "A foreign key to a Concept that refers to the code used in the source."
+                },
+                "discharge_to_source_value": {
+                    "type": "text",
+                    "index": 16,
+                    "name": "discharge_to_source_value",
+                    "comment": "The source code for the discharge disposition as it appears in the source data."
+                },
+                "preceding_visit_detail_id": {
+                    "type": "bigint",
+                    "index": 17,
+                    "name": "preceding_visit_detail_id",
+                    "comment": "A foreign key to the VISIT_DETAIL table of the visit immediately preceding this visit"
+                },
+                "visit_detail_parent_id": {
+                    "type": "bigint",
+                    "index": 18,
+                    "name": "visit_detail_parent_id",
+                    "comment": "A foreign key to the VISIT_DETAIL table record to represent the immediate parent visit-detail record."
+                },
+                "visit_occurrence_id": {
+                    "type": "bigint",
+                    "index": 19,
+                    "name": "visit_occurrence_id",
+                    "comment": "A foreign key that refers to the record in the VISIT_OCCURRENCE table. This is a required field, because for every visit_detail is a child of visit_occurrence and cannot exist without a corresponding parent record in visit_occurrence."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 20,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.hube.visit_detail"
+        },
+        "model.hube.visit_occurrence": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "visit_occurrence",
+                "database": "hube",
+                "comment": "The VISIT_OCCURRENCE table contains the spans of time a Person continuously receives medical services from one or more providers at a Care Site in a given setting within the health care system. Visits are classified into 4 settings: outpatient care, inpatient confinement, emergency room, and long-term care. Persons may transition between these settings over the course of an episode of care (for example, treatment of a disease onset).",
+                "owner": "stolon"
+            },
+            "columns": {
+                "visit_occurrence_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "visit_occurrence_id",
+                    "comment": "A unique identifier for each Person's visit or encounter at a healthcare provider."
+                },
+                "person_id": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "person_id",
+                    "comment": "A foreign key identifier to the Person for whom the visit is recorded. The demographic details of that Person are stored in the PERSON table."
+                },
+                "visit_concept_id": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "visit_concept_id",
+                    "comment": "A foreign key that refers to a visit Concept identifier in the Standardized Vocabularies belonging to the 'Visit' Vocabulary."
+                },
+                "visit_start_date": {
+                    "type": "date",
+                    "index": 4,
+                    "name": "visit_start_date",
+                    "comment": "The start date of the visit."
+                },
+                "visit_start_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "visit_start_datetime",
+                    "comment": "The date and time of the visit started."
+                },
+                "visit_end_date": {
+                    "type": "date",
+                    "index": 6,
+                    "name": "visit_end_date",
+                    "comment": "The end date of the visit. If this is a one-day visit the end date should match the start date."
+                },
+                "visit_end_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 7,
+                    "name": "visit_end_datetime",
+                    "comment": "The date and time of the visit end."
+                },
+                "visit_type_concept_id": {
+                    "type": "integer",
+                    "index": 8,
+                    "name": "visit_type_concept_id",
+                    "comment": "A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of source data from which the visit record is derived belonging to the 'Visit Type' vocabulary."
+                },
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 9,
+                    "name": "provider_id",
+                    "comment": "A foreign key to the provider in the provider table who was associated with the visit."
+                },
+                "care_site_id": {
+                    "type": "bigint",
+                    "index": 10,
+                    "name": "care_site_id",
+                    "comment": "A foreign key to the care site in the care site table that was visited."
+                },
+                "visit_source_value": {
+                    "type": "text",
+                    "index": 11,
+                    "name": "visit_source_value",
+                    "comment": "The source code for the visit as it appears in the source data."
+                },
+                "visit_source_concept_id": {
+                    "type": "integer",
+                    "index": 12,
+                    "name": "visit_source_concept_id",
+                    "comment": "A foreign key to a Concept that refers to the code used in the source."
+                },
+                "admitted_from_concept_id": {
+                    "type": "integer",
+                    "index": 13,
+                    "name": "admitted_from_concept_id",
+                    "comment": "A foreign key to the predefined concept in the Place of Service Vocabulary reflecting where the patient was admitted from."
+                },
+                "admitted_from_source_value": {
+                    "type": "text",
+                    "index": 14,
+                    "name": "admitted_from_source_value",
+                    "comment": "The source code for where the patient was admitted from as it appears in the source data."
+                },
+                "discharge_to_source_value": {
+                    "type": "text",
+                    "index": 15,
+                    "name": "discharge_to_source_value",
+                    "comment": "The source code for the discharge disposition as it appears in the source data."
+                },
+                "discharge_to_concept_id": {
+                    "type": "integer",
+                    "index": 16,
+                    "name": "discharge_to_concept_id",
+                    "comment": "A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the discharge disposition for a visit."
+                },
+                "preceding_visit_occurrence_id": {
+                    "type": "bigint",
+                    "index": 17,
+                    "name": "preceding_visit_occurrence_id",
+                    "comment": "A foreign key to the VISIT_OCCURRENCE table of the visit immediately preceding this visit"
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 18,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.hube.visit_occurrence"
+        }
+    },
+    "sources": {
+        "source.hube.cdm.condition_occurrence": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "condition_occurrence",
+                "database": "hube",
+                "comment": "Conditions are records of a Person suggesting the presence of a disease or medical condition stated as a diagnosis, a sign, or a symptom, which is either observed by a Provider or reported by the patient. Conditions are recorded in different sources and levels of standardization, for example:  * Medical claims data include diagnoses coded in Source Vocabularies such as ICD-9-CM that are submitted as part of a reimbursement claim for health services * EHRs may capture Person conditions in the form of diagnosis codes or symptoms",
+                "owner": "stolon"
+            },
+            "columns": {
+                "condition_occurrence_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "condition_occurrence_id",
+                    "comment": "A unique identifier for each Condition Occurrence event."
+                },
+                "person_id": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "person_id",
+                    "comment": "A foreign key identifier to the Person who is experiencing the condition. The demographic details of that Person are stored in the PERSON table."
+                },
+                "condition_concept_id": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "condition_concept_id",
+                    "comment": "A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Condition' domain."
+                },
+                "condition_start_date": {
+                    "type": "date",
+                    "index": 4,
+                    "name": "condition_start_date",
+                    "comment": "The date when the instance of the Condition is recorded."
+                },
+                "condition_start_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "condition_start_datetime",
+                    "comment": "The date and time when the instance of the Condition is recorded."
+                },
+                "condition_end_date": {
+                    "type": "date",
+                    "index": 6,
+                    "name": "condition_end_date",
+                    "comment": "The date when the instance of the Condition is considered to have ended."
+                },
+                "condition_end_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 7,
+                    "name": "condition_end_datetime",
+                    "comment": "The date when the instance of the Condition is considered to have ended."
+                },
+                "condition_type_concept_id": {
+                    "type": "integer",
+                    "index": 8,
+                    "name": "condition_type_concept_id",
+                    "comment": "A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the source data from which the Condition was recorded, the level of standardization, and the type of occurrence. These belong to the 'Condition Type' vocabulary"
+                },
+                "condition_status_concept_id": {
+                    "type": "integer",
+                    "index": 9,
+                    "name": "condition_status_concept_id",
+                    "comment": "A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies reflecting the point of care at which the Condition was diagnosed."
+                },
+                "stop_reason": {
+                    "type": "character varying(20)",
+                    "index": 10,
+                    "name": "stop_reason",
+                    "comment": "The reason that the Condition was no longer present, as indicated in the source data."
+                },
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 11,
+                    "name": "provider_id",
+                    "comment": "A foreign key to the Provider in the PROVIDER table who was responsible for capturing (diagnosing) the Condition."
+                },
+                "visit_occurrence_id": {
+                    "type": "bigint",
+                    "index": 12,
+                    "name": "visit_occurrence_id",
+                    "comment": "A foreign key to the visit in the VISIT_OCCURRENCE table during which the Condition was determined (diagnosed)."
+                },
+                "visit_detail_id": {
+                    "type": "bigint",
+                    "index": 13,
+                    "name": "visit_detail_id",
+                    "comment": "A foreign key to the visit in the VISIT_DETAIL table during which the Condition was determined (diagnosed)."
+                },
+                "condition_source_value": {
+                    "type": "text",
+                    "index": 14,
+                    "name": "condition_source_value",
+                    "comment": "The source code for the Condition as it appears in the source data. This code is mapped to a Standard Condition Concept in the Standardized Vocabularies and the original code is stored here for reference."
+                },
+                "condition_source_concept_id": {
+                    "type": "integer",
+                    "index": 15,
+                    "name": "condition_source_concept_id",
+                    "comment": "A foreign key to a Condition Concept that refers to the code used in the source."
+                },
+                "condition_status_source_value": {
+                    "type": "text",
+                    "index": 16,
+                    "name": "condition_status_source_value",
+                    "comment": "The source code for the condition status as it appears in the source data.  This code is mapped to a Standard Concept in the Standardized Vocabularies and the original code is stored here for reference."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 17,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.cdm.condition_occurrence"
+        },
+        "source.hube.cdm.drug_exposure": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "drug_exposure",
+                "database": "hube",
+                "comment": "The 'Drug' domain captures records about the utilization of a Drug when ingested or otherwise introduced into the body. A Drug is a biochemical substance formulated in such a way that when administered to a Person it will exert a certain physiological effect. Drugs include prescription and over-the-counter medicines, vaccines, and large-molecule biologic therapies. Radiological devices ingested or applied locally do not count as Drugs.  Drug Exposure is inferred from clinical events associated with orders, prescriptions written, pharmacy dispensings, procedural administrations, and other patient-reported information, for example:  * The 'Prescription' section of an EHR captures prescriptions written by physicians or from electronic ordering systems * The 'Medication list' section of an EHR for both non-prescription products and medications prescribed by other providers * Prescriptions filled at dispensing providers such as pharmacies, and then captured in reimbursement claim systems * Drugs administered as part of a Procedure, such as chemotherapy or vaccines.",
+                "owner": "stolon"
+            },
+            "columns": {
+                "drug_exposure_id": {
+                    "type": "bigint",
+                    "index": 1,
+                    "name": "drug_exposure_id",
+                    "comment": "A system-generated unique identifier for each Drug utilization event."
+                },
+                "person_id": {
+                    "type": "bigint",
+                    "index": 2,
+                    "name": "person_id",
+                    "comment": "A foreign key identifier to the Person who is subjected to the Drug. The demographic details of that Person are stored in the PERSON table."
+                },
+                "drug_concept_id": {
+                    "type": "integer",
+                    "index": 3,
+                    "name": "drug_concept_id",
+                    "comment": "A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Drug' domain."
+                },
+                "drug_exposure_start_date": {
+                    "type": "date",
+                    "index": 4,
+                    "name": "drug_exposure_start_date",
+                    "comment": "The start date for the current instance of Drug utilization. Valid entries include a start date of a prescription, the date a prescription was filled, or the date on which a Drug administration procedure was recorded."
+                },
+                "drug_exposure_start_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "drug_exposure_start_datetime",
+                    "comment": "The start date and time for the current instance of Drug utilization. Valid entries include a start datetime of a prescription, the date and time a prescription was filled, or the date and time on which a Drug administration procedure was recorded."
+                },
+                "drug_exposure_end_date": {
+                    "type": "date",
+                    "index": 6,
+                    "name": "drug_exposure_end_date",
+                    "comment": "The end date for the current instance of Drug utilization. Depending on different sources, it could be a known or an inferred date and denotes the last day at which the patient was still exposed to Drug."
+                },
+                "drug_exposure_end_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 7,
+                    "name": "drug_exposure_end_datetime",
+                    "comment": "The end date and time for the current instance of Drug utilization. Depending on different sources, it could be a known or an inferred date and time and denotes the last day at which the patient was still exposed to Drug."
+                },
+                "verbatim_end_date": {
+                    "type": "date",
+                    "index": 8,
+                    "name": "verbatim_end_date",
+                    "comment": "The known end date of a drug_exposure as provided by the source."
+                },
+                "drug_type_concept_id": {
+                    "type": "integer",
+                    "index": 9,
+                    "name": "drug_type_concept_id",
+                    "comment": "A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of Drug Exposure recorded. It indicates how the Drug Exposure was represented in the source data and belongs to the 'Drug Type' vocabulary."
+                },
+                "stop_reason": {
+                    "type": "character varying(20)",
+                    "index": 10,
+                    "name": "stop_reason",
+                    "comment": "The reason the Drug was stopped. Reasons include regimen completed, changed, removed, etc."
+                },
+                "refills": {
+                    "type": "integer",
+                    "index": 11,
+                    "name": "refills",
+                    "comment": "The number of refills after the initial prescription. The initial prescription is not counted, values start with null."
+                },
+                "quantity": {
+                    "type": "numeric",
+                    "index": 12,
+                    "name": "quantity",
+                    "comment": "The quantity of drug as recorded in the original prescription or dispensing record."
+                },
+                "days_supply": {
+                    "type": "integer",
+                    "index": 13,
+                    "name": "days_supply",
+                    "comment": "The number of days of supply of the medication as prescribed. This reflects the intention of the provider for the length of exposure."
+                },
+                "sig": {
+                    "type": "text",
+                    "index": 14,
+                    "name": "sig",
+                    "comment": "The directions ('signetur') on the Drug prescription as recorded in the original prescription (and printed on the container) or dispensing record."
+                },
+                "route_concept_id": {
+                    "type": "integer",
+                    "index": 15,
+                    "name": "route_concept_id",
+                    "comment": "A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies reflecting the route of administration and belonging to the 'Route' domain."
+                },
+                "lot_number": {
+                    "type": "character varying(50)",
+                    "index": 16,
+                    "name": "lot_number",
+                    "comment": "An identifier assigned to a particular quantity or lot of Drug product from the manufacturer."
+                },
+                "provider_id": {
+                    "type": "bigint",
+                    "index": 17,
+                    "name": "provider_id",
+                    "comment": "A foreign key to the provider in the PROVIDER table who initiated (prescribed or administered) the Drug Exposure."
+                },
+                "visit_occurrence_id": {
+                    "type": "bigint",
+                    "index": 18,
+                    "name": "visit_occurrence_id",
+                    "comment": "A foreign key to the Visit in the VISIT_OCCURRENCE table during which the Drug Exposure was initiated."
+                },
+                "visit_detail_id": {
+                    "type": "bigint",
+                    "index": 19,
+                    "name": "visit_detail_id",
+                    "comment": "A foreign key to the Visit Detail in the VISIT_DETAIL table during which the Drug Exposure was initiated."
+                },
+                "drug_source_value": {
+                    "type": "text",
+                    "index": 20,
+                    "name": "drug_source_value",
+                    "comment": "The source code for the Drug as it appears in the source data. This code is mapped to a Standard Drug concept in the Standardized Vocabularies and the original code is, stored here for reference."
+                },
+                "drug_source_concept_id": {
+                    "type": "integer",
+                    "index": 21,
+                    "name": "drug_source_concept_id",
+                    "comment": "A foreign key to a Drug Concept that refers to the code used in the source."
+                },
+                "route_source_value": {
+                    "type": "text",
+                    "index": 22,
+                    "name": "route_source_value",
+                    "comment": "The information about the route of administration as detailed in the source."
+                },
+                "dose_unit_source_value": {
+                    "type": "text",
+                    "index": 23,
+                    "name": "dose_unit_source_value",
+                    "comment": "The information about the dose unit as detailed in the source."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 24,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.cdm.drug_exposure"
+        },
+        "source.hube.cdm.source_to_concept_map": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "cdm",
+                "name": "source_to_concept_map",
+                "database": "hube",
+                "comment": "The source to concept map table is a legacy data structure within the OMOP Common Data Model, recommended for use in ETL processes to maintain local source codes which are not available as Concepts in the Standardized Vocabularies, and to establish mappings for each source code into a Standard Concept as target_concept_ids that can be used to populate the Common Data Model tables. The SOURCE_TO_CONCEPT_MAP table is no longer populated with content within the Standardized Vocabularies published to the OMOP community.",
+                "owner": "stolon"
+            },
+            "columns": {
+                "source_code": {
+                    "type": "character varying(50)",
+                    "index": 1,
+                    "name": "source_code",
+                    "comment": "The source code being translated into a Standard Concept."
+                },
+                "source_concept_id": {
+                    "type": "integer",
+                    "index": 2,
+                    "name": "source_concept_id",
+                    "comment": "A foreign key to the Source Concept that is being translated into a Standard Concept."
+                },
+                "source_vocabulary_id": {
+                    "type": "character varying(20)",
+                    "index": 3,
+                    "name": "source_vocabulary_id",
+                    "comment": "A foreign key to the VOCABULARY table defining the vocabulary of the source code that is being translated to a Standard Concept."
+                },
+                "source_code_description": {
+                    "type": "character varying(255)",
+                    "index": 4,
+                    "name": "source_code_description",
+                    "comment": "An optional description for the source code. This is included as a convenience to compare the description of the source code to the name of the concept."
+                },
+                "target_concept_id": {
+                    "type": "integer",
+                    "index": 5,
+                    "name": "target_concept_id",
+                    "comment": "A foreign key to the target Concept to which the source code is being mapped."
+                },
+                "target_vocabulary_id": {
+                    "type": "character varying(20)",
+                    "index": 6,
+                    "name": "target_vocabulary_id",
+                    "comment": "A foreign key to the VOCABULARY table defining the vocabulary of the target Concept."
+                },
+                "valid_start_date": {
+                    "type": "date",
+                    "index": 7,
+                    "name": "valid_start_date",
+                    "comment": "The date when the mapping instance was first recorded."
+                },
+                "valid_end_date": {
+                    "type": "date",
+                    "index": 8,
+                    "name": "valid_end_date",
+                    "comment": "The date when the mapping instance became invalid because it was deleted or superseded (updated) by a new relationship. Default value is 31-Dec-2099."
+                },
+                "invalid_reason": {
+                    "type": "character varying(1)",
+                    "index": 9,
+                    "name": "invalid_reason",
+                    "comment": "Reason the mapping instance was invalidated. Possible values are D (deleted), U (replaced with an update) or NULL when valid_end_date has the default value."
+                },
+                "shard_id": {
+                    "type": "smallint",
+                    "index": 10,
+                    "name": "shard_id",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.cdm.source_to_concept_map"
+        },
+        "source.hube.raw.bc_iomed_sapxml_cur": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bc_iomed_sapxml_cur",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "einri": {
+                    "type": "character varying(4000)",
+                    "index": 1,
+                    "name": "einri",
+                    "comment": null
+                },
+                "patnr": {
+                    "type": "bytea",
+                    "index": 2,
+                    "name": "patnr",
+                    "comment": null
+                },
+                "gbdat": {
+                    "type": "character varying(4000)",
+                    "index": 3,
+                    "name": "gbdat",
+                    "comment": null
+                },
+                "gschl": {
+                    "type": "character varying(4000)",
+                    "index": 4,
+                    "name": "gschl",
+                    "comment": null
+                },
+                "falnr": {
+                    "type": "character varying(4000)",
+                    "index": 5,
+                    "name": "falnr",
+                    "comment": null
+                },
+                "fatyp": {
+                    "type": "character varying(4000)",
+                    "index": 6,
+                    "name": "fatyp",
+                    "comment": null
+                },
+                "orgfa": {
+                    "type": "character varying(4000)",
+                    "index": 7,
+                    "name": "orgfa",
+                    "comment": null
+                },
+                "orgna": {
+                    "type": "character varying(4000)",
+                    "index": 8,
+                    "name": "orgna",
+                    "comment": null
+                },
+                "metge": {
+                    "type": "character varying(4000)",
+                    "index": 9,
+                    "name": "metge",
+                    "comment": null
+                },
+                "zdat_curs": {
+                    "type": "character varying(4000)",
+                    "index": 10,
+                    "name": "zdat_curs",
+                    "comment": null
+                },
+                "ztxt_curs": {
+                    "type": "text",
+                    "index": 11,
+                    "name": "ztxt_curs",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 12,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bc_iomed_sapxml_cur"
+        },
+        "source.hube.raw.bc_iomed_sapxml_hos": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bc_iomed_sapxml_hos",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "einri": {
+                    "type": "character varying(4000)",
+                    "index": 1,
+                    "name": "einri",
+                    "comment": null
+                },
+                "doknr": {
+                    "type": "character varying(4000)",
+                    "index": 2,
+                    "name": "doknr",
+                    "comment": null
+                },
+                "erdat": {
+                    "type": "character varying(4000)",
+                    "index": 3,
+                    "name": "erdat",
+                    "comment": null
+                },
+                "dokvr": {
+                    "type": "character varying(4000)",
+                    "index": 4,
+                    "name": "dokvr",
+                    "comment": null
+                },
+                "patnr": {
+                    "type": "bytea",
+                    "index": 5,
+                    "name": "patnr",
+                    "comment": null
+                },
+                "gbdat": {
+                    "type": "character varying(4000)",
+                    "index": 6,
+                    "name": "gbdat",
+                    "comment": null
+                },
+                "gschl": {
+                    "type": "character varying(4000)",
+                    "index": 7,
+                    "name": "gschl",
+                    "comment": null
+                },
+                "dtid": {
+                    "type": "character varying(4000)",
+                    "index": 8,
+                    "name": "dtid",
+                    "comment": null
+                },
+                "falnr": {
+                    "type": "character varying(4000)",
+                    "index": 9,
+                    "name": "falnr",
+                    "comment": null
+                },
+                "begdt": {
+                    "type": "character varying(4000)",
+                    "index": 10,
+                    "name": "begdt",
+                    "comment": null
+                },
+                "enddt": {
+                    "type": "character varying(4000)",
+                    "index": 11,
+                    "name": "enddt",
+                    "comment": null
+                },
+                "orgfa": {
+                    "type": "character varying(4000)",
+                    "index": 12,
+                    "name": "orgfa",
+                    "comment": null
+                },
+                "orgna": {
+                    "type": "character varying(4000)",
+                    "index": 13,
+                    "name": "orgna",
+                    "comment": null
+                },
+                "metge": {
+                    "type": "character varying(4000)",
+                    "index": 14,
+                    "name": "metge",
+                    "comment": null
+                },
+                "zmalaltact": {
+                    "type": "text",
+                    "index": 15,
+                    "name": "zmalaltact",
+                    "comment": null
+                },
+                "zexplorfis": {
+                    "type": "text",
+                    "index": 16,
+                    "name": "zexplorfis",
+                    "comment": null
+                },
+                "zexplocomp": {
+                    "type": "text",
+                    "index": 17,
+                    "name": "zexplocomp",
+                    "comment": null
+                },
+                "zevolclini": {
+                    "type": "text",
+                    "index": 18,
+                    "name": "zevolclini",
+                    "comment": null
+                },
+                "zprocedim": {
+                    "type": "text",
+                    "index": 19,
+                    "name": "zprocedim",
+                    "comment": null
+                },
+                "zdiagnost": {
+                    "type": "character varying(4000)",
+                    "index": 20,
+                    "name": "zdiagnost",
+                    "comment": null
+                },
+                "zcontrol": {
+                    "type": "character varying(4000)",
+                    "index": 21,
+                    "name": "zcontrol",
+                    "comment": null
+                },
+                "ztractame": {
+                    "type": "character varying(4000)",
+                    "index": 22,
+                    "name": "ztractame",
+                    "comment": null
+                },
+                "zates_per": {
+                    "type": "character varying(4000)",
+                    "index": 23,
+                    "name": "zates_per",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 24,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bc_iomed_sapxml_hos"
+        },
+        "source.hube.raw.bc_iomed_sapxml_rad": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bc_iomed_sapxml_rad",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "einri": {
+                    "type": "character varying(4000)",
+                    "index": 1,
+                    "name": "einri",
+                    "comment": null
+                },
+                "patnr": {
+                    "type": "bytea",
+                    "index": 2,
+                    "name": "patnr",
+                    "comment": null
+                },
+                "gbdat": {
+                    "type": "character varying(4000)",
+                    "index": 3,
+                    "name": "gbdat",
+                    "comment": null
+                },
+                "gschl": {
+                    "type": "character varying(4000)",
+                    "index": 4,
+                    "name": "gschl",
+                    "comment": null
+                },
+                "orgfa": {
+                    "type": "character varying(4000)",
+                    "index": 5,
+                    "name": "orgfa",
+                    "comment": null
+                },
+                "orgna": {
+                    "type": "character varying(4000)",
+                    "index": 6,
+                    "name": "orgna",
+                    "comment": null
+                },
+                "metge": {
+                    "type": "character varying(4000)",
+                    "index": 7,
+                    "name": "metge",
+                    "comment": null
+                },
+                "ztxt_rad": {
+                    "type": "text",
+                    "index": 8,
+                    "name": "ztxt_rad",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 9,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bc_iomed_sapxml_rad"
+        },
+        "source.hube.raw.bc_iomed_sapxml_urg": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bc_iomed_sapxml_urg",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "einri": {
+                    "type": "character varying(4000)",
+                    "index": 1,
+                    "name": "einri",
+                    "comment": null
+                },
+                "doknr": {
+                    "type": "character varying(4000)",
+                    "index": 2,
+                    "name": "doknr",
+                    "comment": null
+                },
+                "erdat": {
+                    "type": "character varying(4000)",
+                    "index": 3,
+                    "name": "erdat",
+                    "comment": null
+                },
+                "dokvr": {
+                    "type": "character varying(4000)",
+                    "index": 4,
+                    "name": "dokvr",
+                    "comment": null
+                },
+                "patnr": {
+                    "type": "bytea",
+                    "index": 5,
+                    "name": "patnr",
+                    "comment": null
+                },
+                "gbdat": {
+                    "type": "character varying(4000)",
+                    "index": 6,
+                    "name": "gbdat",
+                    "comment": null
+                },
+                "gschl": {
+                    "type": "character varying(4000)",
+                    "index": 7,
+                    "name": "gschl",
+                    "comment": null
+                },
+                "dtid": {
+                    "type": "character varying(4000)",
+                    "index": 8,
+                    "name": "dtid",
+                    "comment": null
+                },
+                "falnr": {
+                    "type": "character varying(4000)",
+                    "index": 9,
+                    "name": "falnr",
+                    "comment": null
+                },
+                "begdt": {
+                    "type": "character varying(4000)",
+                    "index": 10,
+                    "name": "begdt",
+                    "comment": null
+                },
+                "enddt": {
+                    "type": "character varying(4000)",
+                    "index": 11,
+                    "name": "enddt",
+                    "comment": null
+                },
+                "orgfa": {
+                    "type": "character varying(4000)",
+                    "index": 12,
+                    "name": "orgfa",
+                    "comment": null
+                },
+                "orgna": {
+                    "type": "character varying(4000)",
+                    "index": 13,
+                    "name": "orgna",
+                    "comment": null
+                },
+                "metge": {
+                    "type": "character varying(4000)",
+                    "index": 14,
+                    "name": "metge",
+                    "comment": null
+                },
+                "zmedihabit": {
+                    "type": "character varying(4000)",
+                    "index": 15,
+                    "name": "zmedihabit",
+                    "comment": null
+                },
+                "zantecede": {
+                    "type": "text",
+                    "index": 16,
+                    "name": "zantecede",
+                    "comment": null
+                },
+                "zmalaltact": {
+                    "type": "text",
+                    "index": 17,
+                    "name": "zmalaltact",
+                    "comment": null
+                },
+                "zexplocomp": {
+                    "type": "text",
+                    "index": 18,
+                    "name": "zexplocomp",
+                    "comment": null
+                },
+                "zmotconsul": {
+                    "type": "text",
+                    "index": 19,
+                    "name": "zmotconsul",
+                    "comment": null
+                },
+                "zevolualta": {
+                    "type": "text",
+                    "index": 20,
+                    "name": "zevolualta",
+                    "comment": null
+                },
+                "zprocedim": {
+                    "type": "character varying(4000)",
+                    "index": 21,
+                    "name": "zprocedim",
+                    "comment": null
+                },
+                "zdiagnost": {
+                    "type": "character varying(4000)",
+                    "index": 22,
+                    "name": "zdiagnost",
+                    "comment": null
+                },
+                "zcontrol": {
+                    "type": "character varying(4000)",
+                    "index": 23,
+                    "name": "zcontrol",
+                    "comment": null
+                },
+                "ztractame": {
+                    "type": "character varying(4000)",
+                    "index": 24,
+                    "name": "ztractame",
+                    "comment": null
+                },
+                "zates_per": {
+                    "type": "character varying(4000)",
+                    "index": 25,
+                    "name": "zates_per",
+                    "comment": null
+                },
+                "zexplorfis": {
+                    "type": "character varying(4000)",
+                    "index": 26,
+                    "name": "zexplorfis",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 27,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bc_iomed_sapxml_urg"
+        },
+        "source.hube.raw.bmd_iomed_cataleg_clinic": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmd_iomed_cataleg_clinic",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(20)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "descripcio": {
+                    "type": "character varying(200)",
+                    "index": 2,
+                    "name": "descripcio",
+                    "comment": null
+                },
+                "cod_cataleg_clinic": {
+                    "type": "character varying(200)",
+                    "index": 3,
+                    "name": "cod_cataleg_clinic",
+                    "comment": null
+                },
+                "des_cataleg_clinic": {
+                    "type": "character varying(200)",
+                    "index": 4,
+                    "name": "des_cataleg_clinic",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmd_iomed_cataleg_clinic"
+        },
+        "source.hube.raw.bmd_iomed_far_especialitat": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmd_iomed_far_especialitat",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(30)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "codi_extern": {
+                    "type": "character varying(20)",
+                    "index": 2,
+                    "name": "codi_extern",
+                    "comment": null
+                },
+                "descripcio": {
+                    "type": "character varying(250)",
+                    "index": 3,
+                    "name": "descripcio",
+                    "comment": null
+                },
+                "cod_medicament": {
+                    "type": "character varying(150)",
+                    "index": 4,
+                    "name": "cod_medicament",
+                    "comment": null
+                },
+                "des_medicament": {
+                    "type": "character varying(150)",
+                    "index": 5,
+                    "name": "des_medicament",
+                    "comment": null
+                },
+                "cod_far_principiactiu": {
+                    "type": "character varying(150)",
+                    "index": 6,
+                    "name": "cod_far_principiactiu",
+                    "comment": null
+                },
+                "des_far_principiactiu": {
+                    "type": "character varying(500)",
+                    "index": 7,
+                    "name": "des_far_principiactiu",
+                    "comment": null
+                },
+                "cod_far_grt": {
+                    "type": "character varying(20)",
+                    "index": 8,
+                    "name": "cod_far_grt",
+                    "comment": null
+                },
+                "des_far_grt": {
+                    "type": "character varying(150)",
+                    "index": 9,
+                    "name": "des_far_grt",
+                    "comment": null
+                },
+                "cod_far_atc": {
+                    "type": "character varying(20)",
+                    "index": 10,
+                    "name": "cod_far_atc",
+                    "comment": null
+                },
+                "des_far_atc": {
+                    "type": "character varying(500)",
+                    "index": 11,
+                    "name": "des_far_atc",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 12,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmd_iomed_far_especialitat"
+        },
+        "source.hube.raw.bmd_iomed_lab_prova": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmd_iomed_lab_prova",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(250)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "descripcio": {
+                    "type": "character varying(300)",
+                    "index": 2,
+                    "name": "descripcio",
+                    "comment": null
+                },
+                "cod_lab_prova_sap": {
+                    "type": "character varying(300)",
+                    "index": 3,
+                    "name": "cod_lab_prova_sap",
+                    "comment": null
+                },
+                "des_familia": {
+                    "type": "character varying(300)",
+                    "index": 4,
+                    "name": "des_familia",
+                    "comment": null
+                },
+                "des_sub_familia": {
+                    "type": "character varying(300)",
+                    "index": 5,
+                    "name": "des_sub_familia",
+                    "comment": null
+                },
+                "des_familia_ics": {
+                    "type": "character varying(300)",
+                    "index": 6,
+                    "name": "des_familia_ics",
+                    "comment": null
+                },
+                "des_sub_familia_ics": {
+                    "type": "character varying(300)",
+                    "index": 7,
+                    "name": "des_sub_familia_ics",
+                    "comment": null
+                },
+                "cod_s_n_perfil_ics": {
+                    "type": "character varying(300)",
+                    "index": 8,
+                    "name": "cod_s_n_perfil_ics",
+                    "comment": null
+                },
+                "des_lab_prova_ics": {
+                    "type": "character varying(300)",
+                    "index": 9,
+                    "name": "des_lab_prova_ics",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 10,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmd_iomed_lab_prova"
+        },
+        "source.hube.raw.bmd_iomed_metge": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmd_iomed_metge",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(20)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "descripcio": {
+                    "type": "character varying(250)",
+                    "index": 2,
+                    "name": "descripcio",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 3,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmd_iomed_metge"
+        },
+        "source.hube.raw.bmd_iomed_pacient": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmd_iomed_pacient",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "cod_pacient": {
+                    "type": "bytea",
+                    "index": 1,
+                    "name": "cod_pacient",
+                    "comment": null
+                },
+                "data_naixement": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 2,
+                    "name": "data_naixement",
+                    "comment": null
+                },
+                "data_mort": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 3,
+                    "name": "data_mort",
+                    "comment": null
+                },
+                "cod_sexe": {
+                    "type": "character varying(1)",
+                    "index": 4,
+                    "name": "cod_sexe",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmd_iomed_pacient"
+        },
+        "source.hube.raw.bmd_iomed_prestacio_mestre": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmd_iomed_prestacio_mestre",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(20)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "descripcio": {
+                    "type": "character varying(250)",
+                    "index": 2,
+                    "name": "descripcio",
+                    "comment": null
+                },
+                "cod_tipus": {
+                    "type": "character varying(20)",
+                    "index": 3,
+                    "name": "cod_tipus",
+                    "comment": null
+                },
+                "des_tipus": {
+                    "type": "character varying(250)",
+                    "index": 4,
+                    "name": "des_tipus",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 5,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmd_iomed_prestacio_mestre"
+        },
+        "source.hube.raw.bmd_iomed_servei": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmd_iomed_servei",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(20)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "descripcio": {
+                    "type": "character varying(250)",
+                    "index": 2,
+                    "name": "descripcio",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 3,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmd_iomed_servei"
+        },
+        "source.hube.raw.bmd_iomed_sexe": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmd_iomed_sexe",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(1)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "descripcio": {
+                    "type": "character varying(20)",
+                    "index": 2,
+                    "name": "descripcio",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 3,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmd_iomed_sexe"
+        },
+        "source.hube.raw.bmf_iomed_diagnostic": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmf_iomed_diagnostic",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(80)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "cod_episodi": {
+                    "type": "character varying(80)",
+                    "index": 2,
+                    "name": "cod_episodi",
+                    "comment": null
+                },
+                "cod_dada_clinica": {
+                    "type": "character varying(20)",
+                    "index": 3,
+                    "name": "cod_dada_clinica",
+                    "comment": null
+                },
+                "data": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 4,
+                    "name": "data",
+                    "comment": null
+                },
+                "ordre": {
+                    "type": "double precision",
+                    "index": 5,
+                    "name": "ordre",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 6,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmf_iomed_diagnostic"
+        },
+        "source.hube.raw.bmf_iomed_farmacia": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmf_iomed_farmacia",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(80)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "cod_prestacio": {
+                    "type": "character varying(80)",
+                    "index": 2,
+                    "name": "cod_prestacio",
+                    "comment": null
+                },
+                "data_inici_presc": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 3,
+                    "name": "data_inici_presc",
+                    "comment": null
+                },
+                "data_fi_presc": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 4,
+                    "name": "data_fi_presc",
+                    "comment": null
+                },
+                "data_disp": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 5,
+                    "name": "data_disp",
+                    "comment": null
+                },
+                "num_disp": {
+                    "type": "double precision",
+                    "index": 6,
+                    "name": "num_disp",
+                    "comment": null
+                },
+                "cod_especialitat": {
+                    "type": "character varying(30)",
+                    "index": 7,
+                    "name": "cod_especialitat",
+                    "comment": null
+                },
+                "des_far_frequencia": {
+                    "type": "character varying(60)",
+                    "index": 8,
+                    "name": "des_far_frequencia",
+                    "comment": null
+                },
+                "num_unitat": {
+                    "type": "double precision",
+                    "index": 9,
+                    "name": "num_unitat",
+                    "comment": null
+                },
+                "des_far_unitat": {
+                    "type": "character varying(60)",
+                    "index": 10,
+                    "name": "des_far_unitat",
+                    "comment": null
+                },
+                "num_forma": {
+                    "type": "double precision",
+                    "index": 11,
+                    "name": "num_forma",
+                    "comment": null
+                },
+                "des_far_forma": {
+                    "type": "character varying(60)",
+                    "index": 12,
+                    "name": "des_far_forma",
+                    "comment": null
+                },
+                "des_far_via": {
+                    "type": "character varying(60)",
+                    "index": 13,
+                    "name": "des_far_via",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 14,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmf_iomed_farmacia"
+        },
+        "source.hube.raw.bmf_iomed_laboratori": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmf_iomed_laboratori",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(200)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "cod_prestacio": {
+                    "type": "character varying(80)",
+                    "index": 2,
+                    "name": "cod_prestacio",
+                    "comment": null
+                },
+                "data": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 3,
+                    "name": "data",
+                    "comment": null
+                },
+                "cod_lab_prova": {
+                    "type": "character varying(250)",
+                    "index": 4,
+                    "name": "cod_lab_prova",
+                    "comment": null
+                },
+                "resultat": {
+                    "type": "character varying(4000)",
+                    "index": 5,
+                    "name": "resultat",
+                    "comment": null
+                },
+                "des_cmi": {
+                    "type": "character varying(300)",
+                    "index": 6,
+                    "name": "des_cmi",
+                    "comment": null
+                },
+                "des_mostra": {
+                    "type": "character varying(100)",
+                    "index": 7,
+                    "name": "des_mostra",
+                    "comment": null
+                },
+                "des_microorganisme": {
+                    "type": "character varying(200)",
+                    "index": 8,
+                    "name": "des_microorganisme",
+                    "comment": null
+                },
+                "des_antibiograma": {
+                    "type": "character varying(100)",
+                    "index": 9,
+                    "name": "des_antibiograma",
+                    "comment": null
+                },
+                "des_antibiotic": {
+                    "type": "character varying(100)",
+                    "index": 10,
+                    "name": "des_antibiotic",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 11,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmf_iomed_laboratori"
+        },
+        "source.hube.raw.bmf_iomed_prestacio": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmf_iomed_prestacio",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(80)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "cod_pacient": {
+                    "type": "bytea",
+                    "index": 2,
+                    "name": "cod_pacient",
+                    "comment": null
+                },
+                "cod_servei_solicitant": {
+                    "type": "character varying(20)",
+                    "index": 3,
+                    "name": "cod_servei_solicitant",
+                    "comment": null
+                },
+                "cod_servei_gestor": {
+                    "type": "character varying(20)",
+                    "index": 4,
+                    "name": "cod_servei_gestor",
+                    "comment": null
+                },
+                "data_entrada": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 5,
+                    "name": "data_entrada",
+                    "comment": null
+                },
+                "cod_metge": {
+                    "type": "character varying(20)",
+                    "index": 6,
+                    "name": "cod_metge",
+                    "comment": null
+                },
+                "cod_prestacio_mestre": {
+                    "type": "character varying(20)",
+                    "index": 7,
+                    "name": "cod_prestacio_mestre",
+                    "comment": null
+                },
+                "data_sortida": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 8,
+                    "name": "data_sortida",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 9,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmf_iomed_prestacio"
+        },
+        "source.hube.raw.bmf_iomed_prestacio_episodi": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmf_iomed_prestacio_episodi",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "cod_prestacio": {
+                    "type": "character varying(80)",
+                    "index": 1,
+                    "name": "cod_prestacio",
+                    "comment": null
+                },
+                "cod_episodi": {
+                    "type": "character varying(80)",
+                    "index": 2,
+                    "name": "cod_episodi",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 3,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmf_iomed_prestacio_episodi"
+        },
+        "source.hube.raw.bmf_iomed_procediment": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "raw",
+                "name": "bmf_iomed_procediment",
+                "database": "hube",
+                "comment": null,
+                "owner": "dataengineering_stolon_vault"
+            },
+            "columns": {
+                "codi": {
+                    "type": "character varying(80)",
+                    "index": 1,
+                    "name": "codi",
+                    "comment": null
+                },
+                "cod_episodi": {
+                    "type": "character varying(80)",
+                    "index": 2,
+                    "name": "cod_episodi",
+                    "comment": null
+                },
+                "cod_dada_clinica": {
+                    "type": "character varying(20)",
+                    "index": 3,
+                    "name": "cod_dada_clinica",
+                    "comment": null
+                },
+                "data": {
+                    "type": "timestamp(0) without time zone",
+                    "index": 4,
+                    "name": "data",
+                    "comment": null
+                },
+                "ordre": {
+                    "type": "double precision",
+                    "index": 5,
+                    "name": "ordre",
+                    "comment": null
+                },
+                "iomed_row_insert_datetime": {
+                    "type": "timestamp without time zone",
+                    "index": 6,
+                    "name": "iomed_row_insert_datetime",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "source.hube.raw.bmf_iomed_procediment"
+        }
+    },
+    "errors": null
+}

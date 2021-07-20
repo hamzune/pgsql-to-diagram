@@ -1,0 +1,78 @@
+<div class="container">
+  <h1>{{title}}</h1>
+
+  <div class="row">
+    <div class="col">
+      <div class="my-5">
+        <ul class="list-group list-group-flush">
+          {{#each nodes}}
+            <li class="list-group-item px-0">
+              <a
+                class="btn collapsed"
+                data-toggle="collapse"
+                href="#{{this.node}}"
+                role="button"
+                aria-expanded="true"
+                aria-controls="{{this.node}}"
+              >
+                <h3><b>{{this.node}}</b></h3><span class="mr-3"></span>
+              </a>
+              {{!-- <div class="collapse" id="{{this.node}}"> --}}
+              <div>
+                <ul>
+                  <br />
+                  <h5>Intermediate models</h5>
+                  {{#each this.inter}}
+                    <div class="card card-body mt-2">
+                      <table>
+                        <tr>
+                          <td>Name:</td>
+                          <td><b>{{this.table_name}}</b></td>
+                        </tr>
+                        <tr>
+                          <td>SQL</td>
+                          <td>{{this.compiled_sql}}</td>
+                        </tr>
+                        <tr>
+                          <td>Mermaid</td>
+                          <td>{{this.mermaid}}</td>
+                        </tr>
+                      </table>
+                      <br />
+                      <div class="canvas" style="overflow-y: auto;">
+                        <div class="mermaid">
+                          {{this.mermaid}}
+                        </div>
+                      </div>
+                      <br />
+                    </div>
+                  {{/each}}
+                </ul>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+        <script
+          src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
+        ></script>
+        <script>mermaid.initialize({startOnLoad:true,flowchart:
+          {useMaxWidth:false}});</script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<a href="/erd"><button type="button" class="btn btn-dark">Entity relation
+    diagram</button></a>
+<a href="/dag"><button type="button" class="btn btn-secondary">DAG diagram</button>
+</a>
+
+
+
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>

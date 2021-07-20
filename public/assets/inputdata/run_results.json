@@ -1,0 +1,1283 @@
+{
+    "metadata": {
+        "dbt_schema_version": "https://schemas.getdbt.com/dbt/run-results/v1.json",
+        "dbt_version": "0.20.0b1",
+        "generated_at": "2021-06-17T11:53:40.878269Z",
+        "invocation_id": "6eda6789-ea50-4d1c-82fe-460fa10a678e",
+        "env": {}
+    },
+    "results": [
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.787787Z",
+                    "completed_at": "2021-06-17T11:53:39.799786Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.799786Z",
+                    "completed_at": "2021-06-17T11:53:39.799786Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.01400303840637207,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_d_pacient"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.801787Z",
+                    "completed_at": "2021-06-17T11:53:39.811786Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.812786Z",
+                    "completed_at": "2021-06-17T11:53:39.812786Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.010999202728271484,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_sapxml_cur"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.813785Z",
+                    "completed_at": "2021-06-17T11:53:39.824833Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.824833Z",
+                    "completed_at": "2021-06-17T11:53:39.824833Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.01200103759765625,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_sapxml_hos"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.827786Z",
+                    "completed_at": "2021-06-17T11:53:39.834851Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.834851Z",
+                    "completed_at": "2021-06-17T11:53:39.834851Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.009064197540283203,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_sapxml_urg"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.836851Z",
+                    "completed_at": "2021-06-17T11:53:39.844851Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.844851Z",
+                    "completed_at": "2021-06-17T11:53:39.844851Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.009000062942504883,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.source_to_standard_vocab_map"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.845851Z",
+                    "completed_at": "2021-06-17T11:53:39.850851Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.851850Z",
+                    "completed_at": "2021-06-17T11:53:39.851850Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.005999326705932617,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_d_metge"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.852852Z",
+                    "completed_at": "2021-06-17T11:53:39.857851Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.858859Z",
+                    "completed_at": "2021-06-17T11:53:39.858859Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.007008552551269531,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_d_servei"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.859850Z",
+                    "completed_at": "2021-06-17T11:53:39.864851Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.864851Z",
+                    "completed_at": "2021-06-17T11:53:39.864851Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.0060007572174072266,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_f_prestacio_episodi"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.865851Z",
+                    "completed_at": "2021-06-17T11:53:39.870851Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.871851Z",
+                    "completed_at": "2021-06-17T11:53:39.871851Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.006000518798828125,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_d_far_especialitat"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.873060Z",
+                    "completed_at": "2021-06-17T11:53:39.880047Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.880047Z",
+                    "completed_at": "2021-06-17T11:53:39.880047Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.008196115493774414,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_d_lab_prova"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.881095Z",
+                    "completed_at": "2021-06-17T11:53:39.886095Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.886095Z",
+                    "completed_at": "2021-06-17T11:53:39.886095Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.006047725677490234,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_f_diagnostic"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.887033Z",
+                    "completed_at": "2021-06-17T11:53:39.892042Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.892042Z",
+                    "completed_at": "2021-06-17T11:53:39.892042Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.005008697509765625,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_f_farmacia"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.893056Z",
+                    "completed_at": "2021-06-17T11:53:39.898030Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.898030Z",
+                    "completed_at": "2021-06-17T11:53:39.898030Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.004974842071533203,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_f_laboratori"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.899044Z",
+                    "completed_at": "2021-06-17T11:53:39.904096Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.904096Z",
+                    "completed_at": "2021-06-17T11:53:39.904096Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.005051136016845703,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_f_procediment"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.905084Z",
+                    "completed_at": "2021-06-17T11:53:39.910085Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.910085Z",
+                    "completed_at": "2021-06-17T11:53:39.910085Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.005948066711425781,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_sapxml_rad"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.911032Z",
+                    "completed_at": "2021-06-17T11:53:39.919052Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.919052Z",
+                    "completed_at": "2021-06-17T11:53:39.919052Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.00801992416381836,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.logging.stg_dbt_audit_log"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.920084Z",
+                    "completed_at": "2021-06-17T11:53:39.925031Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.925031Z",
+                    "completed_at": "2021-06-17T11:53:39.925031Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.0049474239349365234,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_d_cataleg_clinic"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.926042Z",
+                    "completed_at": "2021-06-17T11:53:39.931084Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.931084Z",
+                    "completed_at": "2021-06-17T11:53:39.931084Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.005041837692260742,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_d_prestacio_mestre"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.932084Z",
+                    "completed_at": "2021-06-17T11:53:39.938031Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.938031Z",
+                    "completed_at": "2021-06-17T11:53:39.938031Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.006969451904296875,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_d_sex"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.939053Z",
+                    "completed_at": "2021-06-17T11:53:39.944086Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.945031Z",
+                    "completed_at": "2021-06-17T11:53:39.945031Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.0059778690338134766,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.base_f_prestacio"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.946049Z",
+                    "completed_at": "2021-06-17T11:53:39.951090Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.952032Z",
+                    "completed_at": "2021-06-17T11:53:39.952032Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.007000446319580078,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.source_to_source_vocab_map"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.953047Z",
+                    "completed_at": "2021-06-17T11:53:39.956031Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.957031Z",
+                    "completed_at": "2021-06-17T11:53:39.957031Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.0049991607666015625,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "operation.hube.hube-on-run-end-0"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.958032Z",
+                    "completed_at": "2021-06-17T11:53:39.960084Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.960084Z",
+                    "completed_at": "2021-06-17T11:53:39.960084Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.0040247440338134766,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "operation.hube.hube-on-run-start-0"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.962031Z",
+                    "completed_at": "2021-06-17T11:53:39.967032Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:39.967032Z",
+                    "completed_at": "2021-06-17T11:53:39.967032Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.006975412368774414,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "operation.logging.logging-on-run-end-0"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:39.969032Z",
+                    "completed_at": "2021-06-17T11:53:40.480871Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.480871Z",
+                    "completed_at": "2021-06-17T11:53:40.480871Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.5653791427612305,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "operation.logging.logging-on-run-start-0"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.534925Z",
+                    "completed_at": "2021-06-17T11:53:40.542924Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.542924Z",
+                    "completed_at": "2021-06-17T11:53:40.542924Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.009998559951782227,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "operation.logging.logging-on-run-start-1"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.544923Z",
+                    "completed_at": "2021-06-17T11:53:40.552924Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.552924Z",
+                    "completed_at": "2021-06-17T11:53:40.552924Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.009999990463256836,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "operation.logging.logging-on-run-start-2"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.554923Z",
+                    "completed_at": "2021-06-17T11:53:40.561945Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.562946Z",
+                    "completed_at": "2021-06-17T11:53:40.562946Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.00902247428894043,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_person"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.563923Z",
+                    "completed_at": "2021-06-17T11:53:40.570789Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.570789Z",
+                    "completed_at": "2021-06-17T11:53:40.570789Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.0068662166595458984,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_provider"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.571788Z",
+                    "completed_at": "2021-06-17T11:53:40.578753Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.579274Z",
+                    "completed_at": "2021-06-17T11:53:40.579274Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.007485866546630859,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_care_site"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.580267Z",
+                    "completed_at": "2021-06-17T11:53:40.586273Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.586273Z",
+                    "completed_at": "2021-06-17T11:53:40.586273Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.006006002426147461,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.logging.stg_dbt_deployments"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.587269Z",
+                    "completed_at": "2021-06-17T11:53:40.595267Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.595267Z",
+                    "completed_at": "2021-06-17T11:53:40.596268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.008998394012451172,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.logging.stg_dbt_model_deployments"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.597267Z",
+                    "completed_at": "2021-06-17T11:53:40.611268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.611268Z",
+                    "completed_at": "2021-06-17T11:53:40.611268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.015000581741333008,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.person"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.612268Z",
+                    "completed_at": "2021-06-17T11:53:40.619267Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.619267Z",
+                    "completed_at": "2021-06-17T11:53:40.619267Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.006999492645263672,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_death"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.620268Z",
+                    "completed_at": "2021-06-17T11:53:40.630267Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.630267Z",
+                    "completed_at": "2021-06-17T11:53:40.630267Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.009999513626098633,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.provider"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.631280Z",
+                    "completed_at": "2021-06-17T11:53:40.638271Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.638271Z",
+                    "completed_at": "2021-06-17T11:53:40.638271Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.0069904327392578125,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.care_site"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.639268Z",
+                    "completed_at": "2021-06-17T11:53:40.645268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.645268Z",
+                    "completed_at": "2021-06-17T11:53:40.645268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.00599980354309082,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "analysis.logging.deployments"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.646268Z",
+                    "completed_at": "2021-06-17T11:53:40.651268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.651268Z",
+                    "completed_at": "2021-06-17T11:53:40.651268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.004999399185180664,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "analysis.logging.models"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.652267Z",
+                    "completed_at": "2021-06-17T11:53:40.658268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.658268Z",
+                    "completed_at": "2021-06-17T11:53:40.658268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.0060007572174072266,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "analysis.logging.models_out_of_sla"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.659268Z",
+                    "completed_at": "2021-06-17T11:53:40.663270Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.663270Z",
+                    "completed_at": "2021-06-17T11:53:40.663270Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.005000114440917969,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "analysis.logging.models_summary"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.665268Z",
+                    "completed_at": "2021-06-17T11:53:40.673267Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.673267Z",
+                    "completed_at": "2021-06-17T11:53:40.673267Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.007999420166015625,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_visit_occurrence"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.674268Z",
+                    "completed_at": "2021-06-17T11:53:40.684268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.684268Z",
+                    "completed_at": "2021-06-17T11:53:40.684268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.011073112487792969,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.not_null_person_ethnicity_concept_id.92a25feaa3"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.686268Z",
+                    "completed_at": "2021-06-17T11:53:40.694270Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.694270Z",
+                    "completed_at": "2021-06-17T11:53:40.694270Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.008928298950195312,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.not_null_person_ethnicity_source_concept_id.501aeaee9e"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.695267Z",
+                    "completed_at": "2021-06-17T11:53:40.700268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.700268Z",
+                    "completed_at": "2021-06-17T11:53:40.700268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.00600123405456543,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.not_null_person_gender_concept_id.bc5dac1807"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.701268Z",
+                    "completed_at": "2021-06-17T11:53:40.707268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.707268Z",
+                    "completed_at": "2021-06-17T11:53:40.707268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.006000518798828125,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.not_null_person_gender_source_concept_id.7a57a967cf"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.708268Z",
+                    "completed_at": "2021-06-17T11:53:40.715268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.715268Z",
+                    "completed_at": "2021-06-17T11:53:40.715268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.006999969482421875,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.not_null_person_person_id.195d30b84a"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.716286Z",
+                    "completed_at": "2021-06-17T11:53:40.722300Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.722300Z",
+                    "completed_at": "2021-06-17T11:53:40.722300Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.006014108657836914,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.not_null_person_race_concept_id.c2da52469d"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.723269Z",
+                    "completed_at": "2021-06-17T11:53:40.730270Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.730270Z",
+                    "completed_at": "2021-06-17T11:53:40.730270Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.007000923156738281,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.not_null_person_year_of_birth.167b9ae611"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.732268Z",
+                    "completed_at": "2021-06-17T11:53:40.742269Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.743271Z",
+                    "completed_at": "2021-06-17T11:53:40.743271Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.012002944946289062,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.unique_person_person_id.dec200c4c4"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.744268Z",
+                    "completed_at": "2021-06-17T11:53:40.751267Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.751267Z",
+                    "completed_at": "2021-06-17T11:53:40.751267Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.007996797561645508,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.death"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.752267Z",
+                    "completed_at": "2021-06-17T11:53:40.757268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.757268Z",
+                    "completed_at": "2021-06-17T11:53:40.757268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.0060002803802490234,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.not_null_provider_provider_id.56c189ceb5"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.758268Z",
+                    "completed_at": "2021-06-17T11:53:40.768273Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.769273Z",
+                    "completed_at": "2021-06-17T11:53:40.769273Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.011005163192749023,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_visit_detail"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.770268Z",
+                    "completed_at": "2021-06-17T11:53:40.775272Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.775272Z",
+                    "completed_at": "2021-06-17T11:53:40.775272Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.005999326705932617,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "test.hube.not_null_care_site_care_site_id.616967014b"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.776273Z",
+                    "completed_at": "2021-06-17T11:53:40.783272Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.784267Z",
+                    "completed_at": "2021-06-17T11:53:40.784267Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.00799417495727539,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.visit_occurrence"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.785268Z",
+                    "completed_at": "2021-06-17T11:53:40.796267Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.796267Z",
+                    "completed_at": "2021-06-17T11:53:40.796267Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.013000011444091797,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.visit_detail"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.798268Z",
+                    "completed_at": "2021-06-17T11:53:40.806269Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.806269Z",
+                    "completed_at": "2021-06-17T11:53:40.806269Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.010010957717895508,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_condition_occurrence"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.807278Z",
+                    "completed_at": "2021-06-17T11:53:40.816268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.817268Z",
+                    "completed_at": "2021-06-17T11:53:40.817268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.009989738464355469,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_drug_exposure"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.818267Z",
+                    "completed_at": "2021-06-17T11:53:40.829280Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.829280Z",
+                    "completed_at": "2021-06-17T11:53:40.829280Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.011012792587280273,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_measurement"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.830267Z",
+                    "completed_at": "2021-06-17T11:53:40.837267Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.837267Z",
+                    "completed_at": "2021-06-17T11:53:40.837267Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.008000612258911133,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.stg_procedure_occurrence"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.838268Z",
+                    "completed_at": "2021-06-17T11:53:40.848268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.848268Z",
+                    "completed_at": "2021-06-17T11:53:40.848268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.009999752044677734,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.condition_occurrence"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.850268Z",
+                    "completed_at": "2021-06-17T11:53:40.858267Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.858267Z",
+                    "completed_at": "2021-06-17T11:53:40.858267Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.008999347686767578,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.drug_exposure"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.859268Z",
+                    "completed_at": "2021-06-17T11:53:40.867269Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.867269Z",
+                    "completed_at": "2021-06-17T11:53:40.867269Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.009061336517333984,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.measurement"
+        },
+        {
+            "status": "success",
+            "timing": [
+                {
+                    "name": "compile",
+                    "started_at": "2021-06-17T11:53:40.868329Z",
+                    "completed_at": "2021-06-17T11:53:40.876268Z"
+                },
+                {
+                    "name": "execute",
+                    "started_at": "2021-06-17T11:53:40.876268Z",
+                    "completed_at": "2021-06-17T11:53:40.876268Z"
+                }
+            ],
+            "thread_id": "Thread-1",
+            "execution_time": 0.007938623428344727,
+            "adapter_response": {},
+            "message": null,
+            "unique_id": "model.hube.procedure_occurrence"
+        }
+    ],
+    "elapsed_time": 3.890237808227539,
+    "args": {
+        "log_format": "default",
+        "write_json": true,
+        "use_experimental_parser": false,
+        "profiles_dir": "C:\\Users\\hamza\\.dbt",
+        "use_cache": true,
+        "parse_only": false,
+        "version_check": false,
+        "which": "compile",
+        "rpc_method": "compile"
+    }
+}
